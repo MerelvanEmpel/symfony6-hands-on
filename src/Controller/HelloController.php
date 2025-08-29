@@ -10,7 +10,10 @@ class HelloController extends AbstractController {
 
     #[Route('/{limit<\d+>?3}', name: 'app_index')]
     public function index(int $limit): HttpFoundationResponse {
-        return $this->render('hello/index.html.twig', ['messages' => array_slice($this->messages, 0, $limit)]);
+        return $this->render('hello/index.html.twig', [
+            'messages' => $this->messages,
+            'limit' => $limit
+        ]);
     }
 
     #[Route('/messages/{id<\d+>}', name: 'app_show_one')]
