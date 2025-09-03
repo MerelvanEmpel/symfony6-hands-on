@@ -4,6 +4,6 @@
 <div>The current message is: </div>
 <div>
     <b>{{message.message}}</b>
-    {{include('hello/_message.html.twig')}}
+    {{include('hello/_message.html.twig', {message: message})}}
 </div>
 {% endblock %}
