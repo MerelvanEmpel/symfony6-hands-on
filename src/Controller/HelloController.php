@@ -1,9 +1,12 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Entity\UserProfile;
+use App\Repository\UserProfileRepository;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response as HttpFoundationResponse;
-use Symfony\Component\Routing\Annotation\Route;
 
 class HelloController extends AbstractController {
     private array $messages = [
@@ -12,11 +15,23 @@ class HelloController extends AbstractController {
         ['message' => 'Bye!', 'created' => '2021/05/12'] // Must be at least a year ago
     ];
 
-    #[Route('/{limit<\d+>?3}', name: 'app_index')]
-    public function index(int $limit): HttpFoundationResponse {
+    #[Route('/', name: 'app_index')]
+    public function index(UserProfileRepository $profiles): HttpFoundationResponse {
+
+        // $user = new User();
+        // $user->setEmail('email@email.com');
+        // $user->setPassword('12345678');
+
+        // $profile = new UserProfile();
+        // $profile->setUser($user);
+        // $profiles->add($profile, true);
+
+        // $profile = $profiles->find(1);
+        // $profiles->remove($profile, true);
+
         return $this->render('hello/index.html.twig', [
             'messages' => $this->messages,
-            'limit' => $limit
+            'limit' => 3
         ]);
     }
 
