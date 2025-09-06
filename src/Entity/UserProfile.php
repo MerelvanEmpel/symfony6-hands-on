@@ -23,7 +23,7 @@ class UserProfile
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $websiteUrl = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $twitterUsername = null;
 
     #[ORM\Column(length: 255, nullable: true)]
