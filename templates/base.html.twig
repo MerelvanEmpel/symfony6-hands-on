@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark">
+<html class="light">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -28,9 +28,13 @@
             </div>
 
             <div class="text-right">
-                <div class="text-sm text-gray-400 dark:text-gray-500">Login & registration goes here</div>
-                <div>
-                    <a href="{{ path('app_micro_post_add') }}">Add New</a>
+                <div class="text-sm text-gray-400 dark:text-gray-500">
+                    <div>
+                        <a href="{{ path('app_login') }}">Login</a>
+                    </div>
+                    <div>
+                        <a href="{{ path('app_micro_post_add') }}">Add New</a>
+                    </div>
                 </div>
             </div>
         </div>
