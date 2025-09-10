@@ -3,9 +3,9 @@ namespace App\Security;
 
 use DateTime;
 use App\Entity\User;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
 
 class UserChecker implements UserCheckerInterface
 {
@@ -20,7 +20,7 @@ class UserChecker implements UserCheckerInterface
 
         $now = new DateTime();
         if ($now < $user->getBannedUntil()) {
-            throw new AccessDeniedHttpException('The user is banned');
+            throw new CustomUserMessageAuthenticationException('The user is banned');
         }
     }
 
