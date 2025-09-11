@@ -30,7 +30,7 @@ final class MicroPostController extends AbstractController
     public function topLIked(MicroPostRepository $posts): Response
     {
         return $this->render('micro_post/top_liked.html.twig', [
-            'posts' => $posts->findAllWithComments(),
+            'posts' => $posts->findAllWithMinLikes(2),
         ]);
     }
 
