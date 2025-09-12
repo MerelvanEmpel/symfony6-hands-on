@@ -13,11 +13,11 @@ class ProfileImageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('ProfileImage', FileType::class, [
+            ->add('profileImage', FileType::class, [
                 'label' => 'Profile image (JPG or PNG file)',
                 'mapped' => false,
                 'required' => false,
-                'contraints' => [
+                'constraints' => [
                     new File([
                         'maxSize' => '1024k',
                         'mimeTypes' => [
